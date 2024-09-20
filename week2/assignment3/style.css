@@ -1,0 +1,128 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+  min-height: 100vh;
+}
+#contents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; 
+}
+.data_elements {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.data_elements:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.data_elements img {
+  width: 100%;
+  height: 30vh;
+  border-radius: 8px;
+}
+
+.data_elements h4 {
+  margin: 15px 0 10px;
+  color: #333;
+}
+
+.data_elements p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.data_elements button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.data_elements button:hover {
+  background-color: #45a049;
+}
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  position: relative; 
+  margin-top: 20px; 
+}
+.filter-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px; 
+}
+
+.filter-options label {
+  font-size: 14px;
+  color: #333;
+}
+
+.filter-options input {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 150px; 
+}
+
+.filter-options button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-options button:hover {
+  background-color: #45a049;
+}
+@media (max-width: 768px) {
+  #contents {
+      padding: 10px;
+      gap: 15px;
+  }
+
+  .data_elements {
+      width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .data_elements {
+      width: 100%;
+  }
+}

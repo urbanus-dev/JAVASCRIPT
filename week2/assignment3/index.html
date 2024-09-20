@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Filtering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="btns">
+        <button id="Asc">Sort by Price Ascending</button>
+        <button id="Des">Sort by Price Descending</button>
+        <button id="AscDate">Sort by Date Ascending</button>
+        <button id="DateDes">Sort by Date Descending</button>
+        <button id="viewFavorites">View Favorites</button>
+        <button id="totalRevenue">Totals</button>
+    </div>
+    <div class="filter-options">
+        <label for="dateFilter">Filter by Date:</label>
+        <input type="date" id="dateFilter" placeholder="Select Date">
+
+        <label for="priceFilter">Filter by Price (Less than):</label>
+        <input type="number" id="priceFilter" placeholder="e.g. 35">
+
+        <label for="locationFilter">Filter by Location:</label>
+        <input type="text" id="locationFilter" placeholder="Enter Location">
+
+        <button id="filterButton">Apply Filters</button>
+    </div>
+
+    <div id="contents"></div>
+
+    <script src="fronted.js"></script>
+</body>
+
+</html>

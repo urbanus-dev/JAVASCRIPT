@@ -106,3 +106,75 @@ ButtonViewFavorites?.addEventListener('click', () => {
     displayFavorites();
 });
 fetchDataAndDisplay();
+
+const filterButton = document.getElementById('filterButton');
+const dateFilter = document.getElementById('dateFilter');
+const priceFilter = document.getElementById('priceFilter');
+const locationFilter = document.getElementById('locationFilter');
+
+filterButton?.addEventListener('click', () => {
+    let date = dateFilter.value;
+    let price = priceFilter.value;
+    let location = locationFilter.value;
+
+    fetch('http://localhost:3000/cartData')
+        .then(response => response.json())
+        .then(data => {
+            let filteredData = data.filter(data_elements => {
+                let dateMatch = true;
+                let priceMatch = true;
+                let locationMatch = true;
+
+                if (date) {
+                    dateMatch = data_elements.date === date;
+                }
+
+                if (price) {
+                    priceMatch = data_elements.price < price;
+                }
+
+                if (location) {
+                    locationMatch = data_elements.location === location;
+                }
+
+                return dateMatch && priceMatch && locationMatch;
+            });
+
+            let contents_display = document.getElementById('contents');
+            contents_display.innerHTML = '';
+
+            filteredData.forEach(data_elements => {
+                let contentDiv = document.createElement('div');
+                contentDiv.classList.add('data_elements');
+                contentDiv.innerHTML = `
+                    <img src="${data_elements.imageUrl}" alt="${data_elements.id}">
+                    <h4>${data_elements.title}</h4> 
+                    <h4>ksh.${data_elements.price}</h4>        
+                    <p>${data_elements.date}</p>
+                    <p>${data_elements.location}</p>
+                    <h4>${data_elements.company}</h4>
+                    <button onclick="addToFavorites(${data_elements.id})">Add to Favorites</button>
+                `;
+                contents_display.appendChild(contentDiv);
+            });
+        })
+        .catch(error => {
+            console.log(`Error while fetching content: ${error}`);
+        });
+}
+);
+const totalRevenueButton = document.getElementById('totalRevenue');
+totalRevenueButton?.addEventListener('click', () => {
+    fetch('http://localhost:3000/cartData')
+        .then(response => response.json())
+        .then(data => {
+            let totalRevenue = data.reduce((total, event) => total + event.price, 0);
+            alert(`Total revenue from all events is: ksh.${totalRevenue}`);
+        })
+        .catch(error => {
+            console.log(`Error while fetching content: ${error}`);
+        });
+}
+);
+
+
