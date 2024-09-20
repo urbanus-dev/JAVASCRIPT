@@ -176,5 +176,3 @@ totalRevenueButton?.addEventListener('click', () => {
         });
 }
 );
-
-
